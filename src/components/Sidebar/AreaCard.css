@@ -1,0 +1,9 @@
+.area-card {
+  height: 309px;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+.area-card.pulled {
+  height: 28px;
+}

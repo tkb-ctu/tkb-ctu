@@ -1,0 +1,32 @@
+.tag-title {
+  overflow: hidden;
+}
+
+.tag-title > .title {
+  float: left;
+  margin: 10px 8px;
+  cursor: pointer;
+}
+
+.tag-title > .help-icon {
+  float: right;
+  margin: 8px 4px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.tag-title > .dropdown-icon {
+  float: right;
+  margin: 10px 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.tag-title > .dropdown-icon.dropdown {
+  transform: rotate(90deg);
+}
+
+.tag-title > .dropdown-icon.pullup {
+  transform: rotate(0deg);
+}

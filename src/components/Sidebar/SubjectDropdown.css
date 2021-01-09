@@ -1,0 +1,25 @@
+.subject-dropdown {
+  position: absolute;
+  display: none;
+  max-height: 400px;
+  overflow: auto;
+  z-index: 2;
+}
+
+.subject-dropdown__option {
+  padding: 8px 8px;
+  width: 302px;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: white;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.subject-dropdown__option.active {
+  background-color: rgb(230, 230, 230);
+}
+
+.subject-dropdown *:last-child {
+  border-bottom: 1px solid rgb(200, 200, 200);
+  border-radius: 0 0 5px 5px;
+}

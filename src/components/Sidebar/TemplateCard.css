@@ -1,0 +1,93 @@
+.template-card {
+  height: 309px;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+.template-card.pulled {
+  height: 28px;
+}
+
+.template-card table {
+  --border: 1px solid rgb(167, 167, 167);
+  --border-radius: 3px;
+
+  width: 100%;
+  background-color: white;
+  border-spacing: 0;
+  border-radius: var(--border-radius);
+}
+
+.template-card table tr:nth-child(6) > * {
+  border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+.template-card table tr th:last-child,
+.template-card table tr td:last-child {
+  border-right: var(--border);
+}
+
+.template-card table tr:last-child th,
+.template-card table tr:last-child td {
+  border-bottom: var(--border);
+}
+
+.template-card table th,
+.template-card table td {
+  border-left: var(--border);
+  border-top: var(--border);
+  cursor: pointer;
+}
+
+.template-card table tr:first-child th:first-child {
+  border-top-left-radius: var(--border-radius);
+}
+
+.template-card table tr:last-child th:first-child {
+  border-bottom-left-radius: var(--border-radius);
+}
+.template-card table tr:first-child th:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+.template-card table tr:last-child td:last-child {
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.template-card table th {
+  font-weight: normal;
+  background: #dbf3f2;
+  user-select: none;
+}
+
+.template-card table td {
+  text-align: center;
+  vertical-align: middle;
+  width: 15.5%;
+}
+
+.template-card table td .tick-icon {
+  margin-bottom: -3px;
+  font-size: 25px !important;
+  color: red;
+  opacity: 0;
+}
+
+.template-card table td .active {
+  opacity: 1;
+}
+
+/* only use hover effect on non mobile device */
+@media (hover: hover) and (pointer: fine) {
+  .template-card table th:hover {
+    background: #b6e9e8;
+  }
+
+  .template-card table tr:nth-child(1) th:nth-child(1):hover {
+    background: #dbf3f2;
+    cursor: default;
+  }
+
+  .template-card table td:hover > .tick-icon:not(.active) {
+    opacity: 0.5;
+  }
+}

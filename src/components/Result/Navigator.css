@@ -1,0 +1,44 @@
+.navigator {
+  text-align: center;
+}
+
+.navigator .index::-webkit-outer-spin-button,
+.navigator .index::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.navigator .index {
+  -moz-appearance: textfield;
+  margin-right: 2px;
+}
+
+.navigator button {
+  margin: 0 2%;
+  padding: 6px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #459290;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+}
+
+.navigator .disable {
+  cursor: default;
+  background-color: grey;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navigator button:not(.disable):hover {
+    background: #70afad;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  /* .navigator:first-child { */
+  /*   display: block; */
+  /* } */
+}

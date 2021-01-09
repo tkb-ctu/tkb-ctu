@@ -1,0 +1,47 @@
+.member-card {
+  height: 93px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.member-card.pulled {
+  height: 28px;
+}
+
+.member-card .range {
+  height: 45px;
+  padding: 5px 0;
+  background-color: white;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.member-card .range input[type='range'] {
+  width: 95%;
+  cursor: pointer;
+}
+.member-card .range input[type='number'] {
+  width: 10%;
+  padding: 3px;
+  text-align: center;
+  /* outline: none; */
+  border: none;
+  border-radius: 3px;
+  /* border: 1px solid #ddd; */
+  /* background-color: #f4f4f4; */
+}
+.member-card .range input[type='number']::-webkit-outer-spin-button,
+.member-card .range input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.member-card .range input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.member-card .range p {
+  text-align: center;
+  margin: 0;
+}

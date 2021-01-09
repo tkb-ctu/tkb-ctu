@@ -1,0 +1,85 @@
+.schedule {
+  margin: 1%;
+  box-shadow: 0px 1px 2px -1px rgb(56, 56, 56);
+}
+
+.schedule table {
+  --border: 1px solid rgb(167, 167, 167);
+  --border-radius: 3px;
+  --border-separator: 2px solid rgb(167, 167, 167);
+
+  width: 100%;
+  background-color: white;
+  border-collapse: collapse;
+}
+
+.schedule table tr:nth-child(2) > *[rowspan='5'] {
+  border-bottom: var(--border-separator);
+}
+.schedule table tr:nth-child(3) > *[rowspan='4'] {
+  border-bottom: var(--border-separator);
+}
+.schedule table tr:nth-child(4) > *[rowspan='3'] {
+  border-bottom: var(--border-separator);
+}
+.schedule table tr:nth-child(5) > *[rowspan='2'] {
+  border-bottom: var(--border-separator);
+}
+.schedule table tr:nth-child(6) > * {
+  border-bottom: var(--border-separator);
+}
+
+.schedule table th,
+.schedule table td {
+  border: var(--border);
+}
+
+.schedule table th {
+  font-weight: normal;
+  background: #dbf3f2;
+  user-select: none;
+}
+
+.schedule table td {
+  text-align: center;
+  vertical-align: middle;
+  width: 15.5%;
+  height: 40px;
+}
+
+.schedule table td .tick-icon {
+  margin-bottom: -3px;
+  font-size: 25px !important;
+  color: red;
+  opacity: 0;
+}
+
+.schedule table td .active {
+  opacity: 1;
+}
+
+.schedule__cell-data {
+  padding: 2px;
+}
+
+.schedule__cell-data p {
+  margin: 2px 0 0 0;
+}
+
+.schedule__cell-data .subject-name {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.schedule__cell-data[rowspan='2'] .subject-name {
+  -webkit-line-clamp: 2;
+}
+.schedule__cell-data[rowspan='3'] .subject-name {
+  -webkit-line-clamp: 3;
+}
+
+.schedule__cell-data .subject-id {
+  margin: 0;
+}

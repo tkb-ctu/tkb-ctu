@@ -1,0 +1,37 @@
+.subject-tag {
+  position: relative;
+  background-color: white;
+  padding: 6px 8px;
+  margin-top: 10px;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+}
+
+.subject-tag__info {
+  display: inline-block;
+  width: 70%;
+}
+
+/* .subject-tag__info span {
+  white-space: nowrap;
+} */
+
+.subject-tag__clear-icon {
+  float: right;
+  color: red;
+  font-size: 16px !important;
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+.subject-tag__groups {
+  float: right;
+  height: 16px;
+  width: 20%;
+  font-size: 12px !important;
+  margin-right: 2%;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
