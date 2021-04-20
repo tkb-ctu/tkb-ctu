@@ -4,21 +4,39 @@ import { useSelector } from 'react-redux';
 import ClearIcon from '@material-ui/icons/Clear';
 
 import * as filter from '../../utils/filter';
+import * as api from '../../api';
 import global from '../../global';
 import dsmh from '../../dsmh.json';
 
 import './SubjectTag.css';
 
-const endpoint = 'https://htql-2.herokuapp.com/groups';
-
 function SubjectTag({ subjectId, handleDeleteSubject }) {
   const [groups, setGroups] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState('');
+  const [subjectName, setSubjectName] = useState(dsmh[subjectId] || '...');
   const [isFounded, setIsFounded] = useState(true);
 
   const schoolYear = useSelector((state) => state.schoolYear);
 
   const isUnmounted = useRef(false);
+
+  useEffect(() => {
+    async function fetchSubjectName() {
+      try {
+        const response = await api.getSubjectName(subjectId);
+
+        dsmh[subjectId] = response;
+        setSubjectName(response);
+
+        // handle error
+      } catch (err) {
+        setSubjectName('Không xác định');
+      }
+    }
+
+    if (subjectName === '...') fetchSubjectName();
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     isUnmounted.current = false;
@@ -32,28 +50,29 @@ function SubjectTag({ subjectId, handleDeleteSubject }) {
   }, []);
 
   useEffect(() => {
-    const query = `?mahp=${subjectId}&namhoc=${schoolYear.year}&hocky=${schoolYear.semester}`;
-    setGroups(['Loading']);
-
     async function fetchData() {
       try {
-        const response = await fetch(endpoint + query);
-        const json = await response.json();
+        const response = await api.getGroups(
+          subjectId,
+          schoolYear.year,
+          schoolYear.semester,
+        );
 
         if (isUnmounted.current) return;
-        const data = filter.hoaAnGroup(json.data)[subjectId];
+        const data = filter.hoaAnGroup(response)[subjectId];
 
         global.subjects[subjectId] = data;
 
         setGroups(['Tất cả', ...data.map((group) => group.kihieu).sort()]);
         setSelectedGroup('Tất cả');
         setIsFounded(true);
-      } catch {
+      } catch (err) {
         setGroups(['Not Found']);
         setIsFounded(false);
       }
     }
 
+    setGroups(['Loading']);
     fetchData();
     // eslint-disable-next-line
   }, [schoolYear]);
@@ -74,7 +93,7 @@ function SubjectTag({ subjectId, handleDeleteSubject }) {
     // eslint-disable-next-line
   }, [selectedGroup]);
 
-  const info = `${subjectId} - ${dsmh[subjectId] || 'Không xác định'}`;
+  const info = `${subjectId} - ${subjectName}`;
 
   return (
     <div className="subject-tag">

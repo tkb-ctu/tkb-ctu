@@ -5,20 +5,20 @@
 .subject-card__input input {
   border: none;
   outline: none;
-  box-shadow: 0 1px 0 rgba(9,30,66,.25);
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
 }
 
-.subject-card__input input[type="text"] {
+.subject-card__input input[type='text'] {
   border-radius: 3px 0 0 3px;
   padding: 6px 2%;
   width: 75%;
 }
 
-.subject-card__input input[type="text"]:focus ~ .subject-dropdown{
+.subject-card__input input[type='text']:focus ~ .subject-search-list {
   display: block;
 }
 
-.subject-card__input input[type="submit"] {
+.subject-card__input input[type='submit'] {
   width: 21%;
   padding: 6px;
   border-radius: 0 3px 3px 0;
@@ -26,3 +26,4 @@
   background-color: #459290;
   color: white;
 }
+

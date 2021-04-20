@@ -47,7 +47,7 @@ function Navigator({ className, index, maxIndex, onPageChange }) {
           className="index"
           type="number"
           value={page}
-          onChange={(e) => setPage(+e.target.value)}
+          onChange={(e) => setPage(e.target.value)}
           onKeyPress={handlePagePressEnter}
           onBlur={handlePageUnfocus}
           style={{ width: ~~(Math.log10(maxIndex) + 1) * 8 }}

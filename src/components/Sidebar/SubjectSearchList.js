@@ -2,17 +2,17 @@ import React from 'react';
 
 import dsmh from '../../dsmh.json';
 
-import './SubjectDropdown.css';
+import './SubjectSearchList.css';
 
 function SubjectDropdown(props) {
   const { subjects, selectedIndex, onOptionClick, onMouseOverOption } = props;
 
   return (
-    <div className="subject-dropdown">
+    <div className="subject-search-list">
       {subjects.map((subjectid, i) => (
         <div
           key={subjectid}
-          className={`subject-dropdown__option ${
+          className={`subject-search-list__option ${
             i === selectedIndex ? 'active' : ''
           }`}
           onMouseOver={() => onMouseOverOption(i)}

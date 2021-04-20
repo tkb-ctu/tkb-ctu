@@ -4,7 +4,7 @@ import SubjectCard from './SubjectCard';
 import SchoolYearSelector from './SchoolYearSelector';
 import TemplateCard from './TemplateCard';
 import MemberCard from './MemberCard';
-import AreaCard from './AreaCard';
+// import AreaCard from './AreaCard';
 
 import './Sidebar.css';
 
@@ -25,7 +25,7 @@ function Sidebar({ onCreateButtonClick }) {
       <SubjectCard />
       <TemplateCard />
       <MemberCard />
-      <AreaCard />
+      {/* <AreaCard /> */}
       <button
         className="sidebar__generate-btn"
         onClick={handleCreateButtonClick}

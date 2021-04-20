@@ -1,12 +1,12 @@
-.subject-dropdown {
+.subject-search-list {
   position: absolute;
-  display: none;
+  display: none; /* relate to SubjectCard.css */
   max-height: 400px;
   overflow: auto;
   z-index: 2;
 }
 
-.subject-dropdown__option {
+.subject-search-list__option {
   padding: 8px 8px;
   width: 302px;
   border: 1px solid rgb(200, 200, 200);
@@ -15,11 +15,11 @@
   cursor: pointer;
 }
 
-.subject-dropdown__option.active {
+.subject-search-list__option.active {
   background-color: rgb(230, 230, 230);
 }
 
-.subject-dropdown *:last-child {
+.subject-search-list *:last-child {
   border-bottom: 1px solid rgb(200, 200, 200);
   border-radius: 0 0 5px 5px;
 }

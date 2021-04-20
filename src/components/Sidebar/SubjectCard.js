@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import SubjectTag from './SubjectTag';
 import TagTitle from './TagTitle';
-import SubjectDropdown from './SubjectDropdown';
+import SubjectSearchList from './SubjectSearchList';
 
+import * as api from '../../api';
 import viToEn from '../../utils/viToEn';
 
 import dsmh from '../../dsmh.json';
@@ -13,11 +14,11 @@ import './SubjectCard.css';
 const search = {};
 const tooltip = `Chọn lại "Tất cả" để chỉ định nhóm cụ thể, hệ thống sẽ sắp thời khóa biểu xoay quanh nhóm đó`;
 
-Object.keys(dsmh).forEach((key) => {
-  search[key] = viToEn(dsmh[key])
+function convertToSearchable(str) {
+  return viToEn(str)
     .replace(/[^a-zA-Z0-9 ]+/g, '')
     .replace(/\s+/, ' ');
-});
+}
 
 function isSubjectExist(target, subjects) {
   return subjects.some((subjectId) => subjectId === target.toUpperCase());
@@ -30,16 +31,36 @@ function getSavedSubjects() {
   return subjects.split(',');
 }
 
+Object.keys(dsmh).forEach((subjectId) => {
+  search[subjectId] = convertToSearchable(dsmh[subjectId]);
+});
+
 function SubjectCard() {
   const [input, setInput] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [querySubjects, setQuerySubjects] = useState([]);
   const [subjects, setSubjects] = useState(getSavedSubjects());
 
+  // add new subjects to dsmh
+  useEffect(() => {
+    async function addMissingSubjects() {
+      const response = await api.getSubjectNames();
+
+      Object.keys(response).forEach((subjectId) => {
+        dsmh[subjectId] = response[subjectId];
+        search[subjectId] = convertToSearchable(dsmh[subjectId]);
+      });
+    }
+
+    addMissingSubjects();
+  }, []);
+
+  // store subject ids
   useEffect(() => {
     window.localStorage.setItem('subjects', subjects.join(','));
   }, [subjects]);
 
+  // handle input change (show search list)
   useEffect(() => {
     if (input === '') {
       setQuerySubjects([]);
@@ -48,15 +69,22 @@ function SubjectCard() {
 
     setSelectedIndex(-1);
 
-    setQuerySubjects(
-      Object.keys(dsmh)
-        .filter(
-          (key) =>
-            key.includes(input.toUpperCase()) ||
-            search[key].includes(viToEn(input)),
-        )
-        .slice(0, 30),
-    );
+    const _querySubjects = Object.keys(dsmh)
+      .filter((subjectId) => {
+        // update search object if dsmh has new subject
+        if (!search[subjectId]) {
+          search[subjectId] = convertToSearchable(dsmh[subjectId]);
+        }
+
+        return (
+          subjectId.includes(input.toUpperCase()) ||
+          search[subjectId].includes(viToEn(input))
+        );
+      })
+      .slice(0, 30);
+
+    setQuerySubjects(_querySubjects);
+    //
   }, [input]);
 
   function handleAddSubject(e) {
@@ -124,7 +152,7 @@ function SubjectCard() {
         ></input>
         <input type="submit" value="Thêm"></input>
 
-        <SubjectDropdown
+        <SubjectSearchList
           subjects={querySubjects}
           selectedIndex={selectedIndex}
           onOptionClick={onOptionClick}
