@@ -1,6 +1,6 @@
 import React from 'react';
 
-import dsmh from '../../dsmh.json';
+import dsmh from '../../../../dsmh.json';
 
 import './SubjectSearchList.css';
 

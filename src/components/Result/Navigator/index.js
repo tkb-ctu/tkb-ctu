@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import unfocus from '../../utils/unfocus';
+import unfocus from '../../../utils/unfocus';
 
 import './Navigator.css';
 
 function Navigator({ className, index, maxIndex, onPageChange }) {
-  const [page, setPage] = React.useState(index);
+  const [page, setPage] = useState(index);
 
   useEffect(() => setPage(index), [index]);
 
@@ -46,7 +46,7 @@ function Navigator({ className, index, maxIndex, onPageChange }) {
         <input
           className="index"
           type="number"
-          value={page}
+          value={page + 1}
           onChange={(e) => setPage(e.target.value)}
           onKeyPress={handlePagePressEnter}
           onBlur={handlePageUnfocus}

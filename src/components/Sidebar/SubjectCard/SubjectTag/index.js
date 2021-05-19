@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 
 import ClearIcon from '@material-ui/icons/Clear';
 
-import * as filter from '../../utils/filter';
-import * as api from '../../api';
-import global from '../../global';
-import dsmh from '../../dsmh.json';
+import * as filter from '../../../../utils/filter';
+import * as api from '../../../../api';
+import global from '../../../../global';
+import dsmh from '../../../../dsmh.json';
 
 import './SubjectTag.css';
 

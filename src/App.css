@@ -1,20 +1,37 @@
-.app {
+* {
+  font-family: Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+html,
+body,
+#root {
   height: 100%;
 }
 
-/*
-::-webkit-scrollbar {
-  width: 6px;
+.app {
+  height: 100%;
 }
- 
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-::-webkit-scrollbar-thumb {
-  background: rgb(181, 181, 181); 
-}
+/* ::-webkit-scrollbar { */
+/*   width: 6px; */
+/* } */
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(158, 158, 158); 
-} */
+/* /1* Track *1/ */
+/* ::-webkit-scrollbar-track { */
+/*   background: #eee; */
+/*   border-radius: 10px; */
+/* } */
+
+/* /1* Handle *1/ */
+/* ::-webkit-scrollbar-thumb { */
+/*   background: #999; */
+/*   border-radius: 12px; */
+/* } */
+
+/* /1* Handle on hover *1/ */
+/* ::-webkit-scrollbar-thumb:hover { */
+/*   background: grey; */
+/* } */

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import store from '../../store';
-import { changeYear, changeSemester } from '../../actions/schoolYear';
+import store from '../../../store';
+import { changeYear, changeSemester } from '../../../actions/schoolYear';
 
 import './SchoolYearSelector.css';
 

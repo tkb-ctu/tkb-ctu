@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import SubjectTag from './SubjectTag';
-import TagTitle from './TagTitle';
+import TagTitle from '../TagTitle';
 import SubjectSearchList from './SubjectSearchList';
 
-import * as api from '../../api';
-import viToEn from '../../utils/viToEn';
+import * as api from '../../../api';
+import viToEn from '../../../utils/viToEn';
 
-import dsmh from '../../dsmh.json';
+import dsmh from '../../../dsmh.json';
 
 import './SubjectCard.css';
 

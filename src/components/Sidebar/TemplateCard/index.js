@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import TagTitle from './TagTitle';
+import TagTitle from '../TagTitle';
 import ClearIcon from '@material-ui/icons/Clear';
 
-import global from '../../global';
+import global from '../../../global';
 
 import './TemplateCard.css';
 

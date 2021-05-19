@@ -1,6 +1,6 @@
 import React from 'react';
 
-import dsmh from '../../dsmh.json';
+import dsmh from '../../../dsmh.json';
 
 import './Schedule.css';
 
@@ -57,11 +57,8 @@ function Schedule({ schedule, colorMap, index }) {
 
   return (
     <div className="schedule">
-      <p style={{ fontWeight: 'bold', textAlign: 'center', margin: 0 }}>
-        {index}
-      </p>
       <table>
-        <tbody>
+        <thead>
           <tr>
             <th>Tiết</th>
             <th>Thứ 2</th>
@@ -71,6 +68,8 @@ function Schedule({ schedule, colorMap, index }) {
             <th>Thứ 6</th>
             <th>Thứ 7</th>
           </tr>
+        </thead>
+        <tbody>
           {scheduleMap.map((row, x) => (
             <tr key={x}>
               <th>{x + 1}</th>

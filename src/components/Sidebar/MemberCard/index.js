@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import TagTitle from './TagTitle';
+import TagTitle from '../TagTitle';
 
-import unfocus from '../../utils/unfocus';
-import global from '../../global';
+import unfocus from '../../../utils/unfocus';
+import global from '../../../global';
 
 import './MemberCard.css';
 

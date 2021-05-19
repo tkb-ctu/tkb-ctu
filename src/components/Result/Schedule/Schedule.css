@@ -1,5 +1,5 @@
 .schedule {
-  margin: 1%;
+  margin: 0.2% 1% 1% 1%;
   box-shadow: 0px 1px 2px -1px rgb(56, 56, 56);
 }
 
@@ -13,19 +13,19 @@
   border-collapse: collapse;
 }
 
-.schedule table tr:nth-child(2) > *[rowspan='5'] {
+.schedule table tr:nth-child(1) > *[rowspan='5'] {
   border-bottom: var(--border-separator);
 }
-.schedule table tr:nth-child(3) > *[rowspan='4'] {
+.schedule table tr:nth-child(2) > *[rowspan='4'] {
   border-bottom: var(--border-separator);
 }
-.schedule table tr:nth-child(4) > *[rowspan='3'] {
+.schedule table tr:nth-child(3) > *[rowspan='3'] {
   border-bottom: var(--border-separator);
 }
-.schedule table tr:nth-child(5) > *[rowspan='2'] {
+.schedule table tr:nth-child(4) > *[rowspan='2'] {
   border-bottom: var(--border-separator);
 }
-.schedule table tr:nth-child(6) > * {
+.schedule table tr:nth-child(5) > * {
   border-bottom: var(--border-separator);
 }
 

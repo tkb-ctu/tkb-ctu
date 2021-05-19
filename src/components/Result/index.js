@@ -47,10 +47,6 @@ function Result({ schedules }, ref) {
   const isDesktop = window.innerWidth > 700;
   const startIndex = currentIndex * limit;
 
-  function onPageChange1(index) {
-    setCurrentIndex(index);
-  }
-
   function onPageChange2(index) {
     setCurrentIndex(index);
 
@@ -68,29 +64,34 @@ function Result({ schedules }, ref) {
 
   return (
     <div className="result" ref={ref}>
-      {(isDesktop && currentIndex === 0) || !isDesktop ? (
-        <h2>{message}</h2>
-      ) : null}
+      {/* {(isDesktop && currentIndex === 0) || !isDesktop ? ( */}
+      <h2>{message}</h2>
+      {/* ) : null} */}
 
-      {schedules.length > limit ? (
-        (isDesktop && currentIndex !== 0) || !isDesktop ? (
-          <Navigator
-            index={currentIndex}
-            maxIndex={maxIndex}
-            onPageChange={onPageChange1}
-            className={'result__top-navigator'}
-          />
-        ) : null
-      ) : null}
+      {/* {schedules.length > limit ? ( */}
+      {/*   (isDesktop && currentIndex !== 0) || !isDesktop ? ( */}
+      {/*     <Navigator */}
+      {/*       index={currentIndex} */}
+      {/*       maxIndex={maxIndex} */}
+      {/*       onPageChange={onPageChange1} */}
+      {/*       className={'result__top-navigator'} */}
+      {/*     /> */}
+      {/*   ) : null */}
+      {/* ) : null} */}
 
       <div className="schedules">
         {schedules.slice(startIndex, startIndex + limit).map((schedule, i) => (
-          <Schedule
-            key={i}
-            schedule={schedule}
-            colorMap={colorMap}
-            index={startIndex + i + 1}
-          />
+          <>
+            <p style={{ fontWeight: 'bold', textAlign: 'center', margin: 0 }}>
+              {startIndex + i + 1}
+            </p>
+            <Schedule
+              key={i}
+              schedule={schedule}
+              colorMap={colorMap}
+              index={startIndex + i + 1}
+            />
+          </>
         ))}
       </div>
 
