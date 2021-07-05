@@ -67,6 +67,12 @@ function SubjectTag({ subjectId, handleDeleteSubject }) {
           data = filter.hoaAnGroup(response)[subjectId];
         }
 
+        if (data.length === 0) {
+          setGroups(['Not Found']);
+          setIsFounded(false);
+          return;
+        }
+
         global.subjects[subjectId] = data;
 
         setGroups(['Tất cả', ...data.map((group) => group.kihieu).sort()]);
