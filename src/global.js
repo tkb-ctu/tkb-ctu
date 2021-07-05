@@ -7,6 +7,4 @@ const global = {
   minMember: 1,
 };
 
-console.log(global);
-
 export default global;

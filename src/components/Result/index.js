@@ -59,8 +59,8 @@ function Result({ schedules }, ref) {
 
   const message =
     schedules.length !== 0
-      ? `${schedules.length} thời khóa biểu được tìm thấy`
-      : 'Không tìm thấy thời khóa biểu phù hợp';
+      ? `${schedules.length} lịch học được tìm thấy`
+      : 'Không tìm thấy lịch học phù hợp';
 
   return (
     <div className="result" ref={ref}>

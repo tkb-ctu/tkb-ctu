@@ -4,7 +4,7 @@
 
 .semester-selection span {
   color: white;
-  font-weight: bold; 
+  font-weight: bold;
   font-size: 14px;
 }
 
@@ -28,4 +28,17 @@
 
 .semester-selection select option {
   color: black;
+}
+
+.semester-selection .hoaAn {
+  display: inline-block;
+}
+
+.semester-selection .hoaAn > * {
+  vertical-align: middle;
+}
+
+.semester-selection .hoaAn > svg {
+  cursor: pointer;
+  color: white;
 }

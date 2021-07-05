@@ -1,14 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { CheckBox, CheckBoxOutlineBlank } from '@material-ui/icons';
 
 import store from '../../../store';
-import { changeYear, changeSemester } from '../../../actions/schoolYear';
+import {
+  changeYear,
+  changeSemester,
+  changeIsHoaAn,
+} from '../../../actions/schoolYear';
 
 import './SchoolYearSelector.css';
 
 function SemesterSelection() {
   const year = useSelector((state) => state.schoolYear.year);
   const semester = useSelector((state) => state.schoolYear.semester);
+  const isHoaAn = useSelector((state) => state.schoolYear.isHoaAn);
 
   return (
     <div className="semester-selection">
@@ -36,6 +42,18 @@ function SemesterSelection() {
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
+
+      <div className="hoaAn">
+        <span>Hòa An: </span>
+
+        {isHoaAn ? (
+          <CheckBox onClick={() => store.dispatch(changeIsHoaAn(false))} />
+        ) : (
+          <CheckBoxOutlineBlank
+            onClick={() => store.dispatch(changeIsHoaAn(true))}
+          />
+        )}
+      </div>
     </div>
   );
 }

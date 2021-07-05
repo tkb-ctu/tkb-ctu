@@ -20,6 +20,7 @@ function generateInitialState() {
   return {
     year: year.toString(),
     semester: semester.toString(),
+    isHoaAn: false,
   };
 }
 
@@ -35,6 +36,12 @@ export default function schoolYear(state = generateInitialState(), action) {
       return {
         ...state,
         semester: action.payload,
+      };
+
+    case 'CHANGE_IS_HOA_AN':
+      return {
+        ...state,
+        isHoaAn: action.payload,
       };
 
     default:

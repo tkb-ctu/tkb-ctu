@@ -43,6 +43,17 @@ export function hoaAnGroup(subjects) {
   return filteredSubjects;
 }
 
+export function khu2Group(subjects) {
+  const filteredSubjects = {};
+  for (const subjectId in subjects) {
+    filteredSubjects[subjectId] = subjects[subjectId].filter(
+      (group) => !group.buoihoc.every((buoi) => !/HA/.test(buoi.phong)),
+    );
+  }
+
+  return filteredSubjects;
+}
+
 export function untakenGroup(subjects, takenGroups) {
   const filteredSubjects = { ...subjects };
   // for (const subjectId in subjects) {

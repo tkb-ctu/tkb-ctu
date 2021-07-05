@@ -11,3 +11,10 @@ export function changeSemester(semester) {
     payload: semester,
   };
 }
+
+export function changeIsHoaAn(isHoaAn) {
+  return {
+    type: 'CHANGE_IS_HOA_AN',
+    payload: isHoaAn,
+  };
+}

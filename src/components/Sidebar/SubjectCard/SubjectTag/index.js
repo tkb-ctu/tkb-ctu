@@ -59,7 +59,13 @@ function SubjectTag({ subjectId, handleDeleteSubject }) {
         );
 
         if (isUnmounted.current) return;
-        const data = filter.hoaAnGroup(response)[subjectId];
+
+        let data;
+        if (schoolYear.isHoaAn) {
+          data = filter.khu2Group(response)[subjectId];
+        } else {
+          data = filter.hoaAnGroup(response)[subjectId];
+        }
 
         global.subjects[subjectId] = data;
 
